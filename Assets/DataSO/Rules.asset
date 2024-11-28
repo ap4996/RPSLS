@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83ff8aa6e113b124a837b822477590e2, type: 3}
+  m_Name: Rules
+  m_EditorClassIdentifier: 
+  rules:
+  - name: Rock
+    sprite: {fileID: 21300000, guid: 35abed94e75ea7b4d8a46116674a7153, type: 3}
+    choice: 1
+    beats: 0300000004000000
+  - name: Paper
+    sprite: {fileID: 21300000, guid: 1787c9f20751cf64aa46345549fea6cf, type: 3}
+    choice: 2
+    beats: 0100000005000000
+  - name: Scissors
+    sprite: {fileID: 21300000, guid: 224393e5d56782346b23758ae61d7430, type: 3}
+    choice: 3
+    beats: 0300000004000000
+  - name: Lizard
+    sprite: {fileID: 21300000, guid: 82da85ceb453fd94ea1c79698aecd807, type: 3}
+    choice: 4
+    beats: 0200000005000000
+  - name: Spock
+    sprite: {fileID: 21300000, guid: 550d81a2e9a448248aa9586a866f9b55, type: 3}
+    choice: 5
+    beats: 0300000001000000
