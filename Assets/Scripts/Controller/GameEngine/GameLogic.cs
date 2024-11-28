@@ -1,15 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class GameLogic : IGameLogic
 {
     public object GetWinner(object player1Hand, object player2Hand, object rule)
     {
         var data = VerifyAndCastData(player1Hand, player2Hand, rule);
-        if (data.Item1)
+        if (data.castingSuccessful)
         {
-            return DetermineWinner(data.Item2, data.Item3, data.Item4);
+            return DetermineWinner(data.player1Choice, data.player2Choice, data.rule);
         }
         else
         {
@@ -33,19 +29,16 @@ public class GameLogic : IGameLogic
         }
     }
 
-    private (bool, RPSLSChoice, RPSLSChoice, GameRules.Rule) VerifyAndCastData(object player1Hand, object player2Hand, object rule)
+    private VerifiedChoiceData<RPSLSChoice, GameRules.Rule> VerifyAndCastData(object player1Hand, object player2Hand, object rule)
     {
-        bool castingSuccessful = false;
-        RPSLSChoice p1 = RPSLSChoice.None;
-        RPSLSChoice p2 = RPSLSChoice.None;
-        GameRules.Rule r = null;
+        var data = new VerifiedChoiceData<RPSLSChoice, GameRules.Rule>();
         if (player1Hand is RPSLSChoice && player2Hand is RPSLSChoice && rule is GameRules.Rule)
         {
-            p1 = (RPSLSChoice)player1Hand;
-            p2 = (RPSLSChoice)player2Hand;
-            r = (GameRules.Rule)rule;
-            castingSuccessful = true;
+            data.player1Choice = (RPSLSChoice)player1Hand;
+            data.player2Choice = (RPSLSChoice)player2Hand;
+            data.rule = (GameRules.Rule)rule;
+            data.castingSuccessful = true;
         }
-        return (castingSuccessful, p1, p2, r);
+        return data;
     }
 }

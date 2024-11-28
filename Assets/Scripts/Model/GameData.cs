@@ -1,10 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameData : MonoBehaviour
+public class VerifiedChoiceData<T, Y>
 {
-    
+    public bool castingSuccessful;
+    public T player1Choice;
+    public T player2Choice;
+    public Y rule;
+}
+
+public class PlayerChoice
+{
+    public RPSLSChoice choice;
+    public PlayerType playerType;
+    public Sprite sprite;
+    public string name;
+}
+
+public class GameResult<T>
+{
+    public T result;
 }
 
 public enum RPSLSChoice

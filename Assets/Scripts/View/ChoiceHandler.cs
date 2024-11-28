@@ -9,8 +9,6 @@ public class ChoiceHandler : MonoBehaviour
     public TMP_Text choiceName;
     public Button button;
 
-    public static event Action<object, object> OnChoiceSelect;
-
     private RPSLSChoice choice;
 
     public void RenderChoice(string name, Sprite icon, RPSLSChoice choice)
@@ -30,7 +28,7 @@ public class ChoiceHandler : MonoBehaviour
 
     private void ButtonDelegate()
     {
-        OnChoiceSelect?.Invoke(choice, PlayerType.SinglePlayer);
+        EventManager.TriggerEvent(Events.ChoiceSelected, new PlayerChoice { choice = choice, playerType = PlayerType.SinglePlayer, sprite = choiceImage.sprite, name = choiceName.text });
     }
 
     private void SetChoice(RPSLSChoice choice)
